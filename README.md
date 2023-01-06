@@ -1,3 +1,3 @@
-# ts-template
+# Sync-calendar module for Notion
 
-Here is a basic ts-template to start using typescript for nodejs.
+This is a module that help you sync ical calendar to a Notion calendar.
