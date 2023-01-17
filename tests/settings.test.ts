@@ -7,8 +7,6 @@ describe('testing settings file', () => {
     expect(settings).toBeDefined();
   });  
   test('Settings are not empty', () => {
-    expect(settings.DatabaseID.length).toBeGreaterThan(0);
-    expect(settings.NotionAPI.length).toBeGreaterThan(0);
-    expect(settings.SettingsDatabaseID.length).toBeGreaterThan(0);
+    expect(settings.isEmpty()).toBeFalsy();
   });
 });

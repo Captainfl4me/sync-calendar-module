@@ -1,9 +1,13 @@
 import { NotionAPI, DatabaseID, SettingsDatabaseID } from '../settings.json';
 
-class ModuleSettings {
+export class ModuleSettings {
   public NotionAPI: string = "";
   public DatabaseID: string = "";
   public SettingsDatabaseID: string = "";
+
+  isEmpty(): boolean {
+    return NotionAPI=="" || DatabaseID=="" || SettingsDatabaseID=="";
+  }
 }
 
 export function getSettings(): ModuleSettings {
