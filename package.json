@@ -1,8 +1,9 @@
 {
   "name": "sync-calendar-module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Sync calendar module for Notion",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "start:dev": "npx nodemon",
     "build": "rimraf ./build && tsc",
