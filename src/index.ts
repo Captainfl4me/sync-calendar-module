@@ -1,6 +1,6 @@
 import { Client } from "@notionhq/client";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { getSettings, ModuleSettings } from "./helper/settings.helper";
+import { getSettings, ModuleSettings } from "./settings.helper";
 
 import { async, DateWithTimeZone, VEvent } from 'node-ical';
 
