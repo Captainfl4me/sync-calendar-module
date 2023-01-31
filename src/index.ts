@@ -1,9 +1,13 @@
 import { Client } from "@notionhq/client";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { ModuleSettings } from "./settings.helper";
 
 //import { async, DateWithTimeZone, VEvent } from 'node-ical';
 const ical = require('node-ical');
+
+export class ModuleSettings {
+  public DatabaseID: string = "";
+  public SettingsDatabaseID: string = "";
+}
 
 export class SyncCalendarModule {
   private _settings: ModuleSettings;
