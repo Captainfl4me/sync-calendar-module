@@ -1,14 +1,14 @@
 import { Client } from "@notionhq/client";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { getSettings, ModuleSettings } from "./settings.helper";
+import { ModuleSettings } from "./settings.helper";
 
-import { async, DateWithTimeZone, VEvent } from 'node-ical';
+//import { async, DateWithTimeZone, VEvent } from 'node-ical';
+const ical = require('node-ical');
 
 export class SyncCalendarModule {
   private _settings: ModuleSettings;
 
   constructor(settings: ModuleSettings = new ModuleSettings()){
-    if(settings.isEmpty()) settings = getSettings();
     this._settings = settings;
   }
 
@@ -23,10 +23,10 @@ export class SyncCalendarModule {
     console.log(url);
 
     console.time('calendar')
-    const webEvents = Object.values(await async.fromURL(url));
+    const webEvents = Object.values(await ical.async.fromURL(url));
     let promises = [];
     for(let j = 0; j < webEvents.length; j++){
-      const event = webEvents[j];
+      const event = webEvents[j] as any;
 
       if(event.type !== 'VEVENT') continue;
 
@@ -37,7 +37,7 @@ export class SyncCalendarModule {
     console.timeEnd('calendar');
   }
 
-  async UpdateEvent(notion: Client, notionDatabaseId: string, notionSettingsRawId: string, event: VEvent){  
+  async UpdateEvent(notion: Client, notionDatabaseId: string, notionSettingsRawId: string, event: any){  
     const resultFromNotion = await notion.databases.query({
       database_id: notionDatabaseId,
       filter: {
@@ -134,7 +134,7 @@ export class SyncCalendarModule {
   }
 }
 
-function toIsoString(date: DateWithTimeZone) {
+function toIsoString(date: any) {
   var tzo = -date.getTimezoneOffset(),
       dif = tzo >= 0 ? '+' : '-',
       pad = (num: number) => {
