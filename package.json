@@ -1,6 +1,6 @@
 {
   "name": "sync-calendar-module",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Sync calendar module for Notion",
   "main": "build/cjs/index.js",
   "types": "build/cjs/index.d.ts",
