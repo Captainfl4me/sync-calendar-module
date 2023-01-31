@@ -1,9 +1,9 @@
 {
   "name": "sync-calendar-module",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Sync calendar module for Notion",
   "main": "build/cjs/index.js",
-  "types": "build/cjs/types/*.d.ts",
+  "types": "build/cjs/types/index.d.ts",
   "scripts": {
     "clean": "rimraf ./build",
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
